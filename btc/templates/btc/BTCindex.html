@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+    <title>{{coin_name}}</title>
+  </head>
+  <body>
+    <div class="container-fluid">
+	<div class="row-fluid">
+		<div class="span12">
+
+                <nav class="navbar navbar-expand-lg navbar-light bg-light">
+
+                  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                  </button>
+                  <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav">
+                      <li class="nav-item">
+                        <a class="nav-link" href="/btc">btc</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href="/eth">eth</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href="/bch">bch</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href="/ltc">ltc</a>
+                      </li>
+                        <li class="nav-item">
+                        <a class="nav-link" href="/eos">eos</a>
+                      </li>
+                        <li class="nav-item">
+                        <a class="nav-link" href="/zec">zec</a>
+                      </li>
+
+                    </ul>
+                  </div>
+                </nav>
+
+            <h3 class="text-center">
+				 {{coin_name}} 全球交易所比价--从低到高排序
+			</h3>
+				<div class="span12">
+					<table class="table table-striped table-hover table-condensed">
+						<thead>
+							<tr>
+								<th>
+									网站
+								</th>
+								<th>
+									当前价格($)
+								</th>
+								<th>
+									24h交易量($)
+								</th>
+								<th>
+									24h涨跌
+								</th>
+                                <th>
+									更新时间
+								</th>
+							</tr>
+						</thead>
+                        {% if BTC_Price_list %}
+						<tbody>
+                        {% for BTC_Price in BTC_Price_list %}
+							<tr>
+								<td>
+									<a href={{BTC_Price.m_website}}>{{BTC_Price.m_name}} </a>
+								</td>
+								<td>
+									${{BTC_Price.m_price}}
+								</td>
+								<td>
+									{{BTC_Price.m_24hvol}}
+								</td>
+								<td>
+									{{BTC_Price.m_24hchangepercent}}
+								</td>
+                                <td>
+									{{BTC_Price.m_updatetime}}
+								</td>
+							</tr>
+                        {% endfor %}
+						</tbody>
+                        {% else %}
+                            <p>No item are available.</p>
+                        {% endif %}
+					</table>
+				</div>
+                请打赏：<img alt="140x140" src="img/a.jpg"
+			</div>
+		</div>
+	</div>
+</div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+  </body>
+</html>
+
