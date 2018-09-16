@@ -246,13 +246,13 @@ def getlastupdate():
 
 def geturl(url = ''):
         chrome_options = webdriver.ChromeOptions()
+        chrome_options.add_argument('--headless')
+        chrome_options.add_argument('--ignore-certificate-errors')
         prefs = {"profile.managed_default_content_settings.images": 2,
-                 'profile.default_content_setting_values' :{'notifications' : 2}
-        }
+                 'profile.default_content_setting_values': {'notifications': 2}
+                 }
         chrome_options.add_experimental_option("prefs", prefs)
 
-        #browser = webdriver.Chrome('/Users/liligong/anaconda/lib/python3.6/site-packages/chromedriver',
-        #                           chrome_options=chrome_options)
         browser = webdriver.Chrome(chrome_options=chrome_options)
         browser.implicitly_wait(10)
         try:
@@ -613,4 +613,28 @@ export PATH="/Users/liligong/Documents/programe/mysql-5.6.27-osx10.9-x86_64/bin:
 echo 'export PATH="/home/liligong/anaconda3/lib/python3.6/site-packages:$PATH"' >> ~/.bashrc
 sudo mv chromedriver /home/liligong/anaconda3/bin/chromedriver
 sudo chmod u+x,o+x   /home/liligong/anaconda3/bin/chromedriver
+
+from selenium import webdriver
+chrome_options = webdriver.ChromeOptions()
+chrome_options.add_argument('--headless')
+chrome_options.add_argument('--ignore-certificate-errors')
+prefs = {"profile.managed_default_content_settings.images": 2,
+                 'profile.default_content_setting_values' :{'notifications' : 2}
+        }
+chrome_options.add_experimental_option("prefs", prefs)
+driver = webdriver.Chrome(chrome_options=chrome_options)
+driver.get('https://python.org') 
+print(driver.title)
+
+chrome_options.add_argument('--ignore-certificate-errors')
+prefs = {"profile.managed_default_content_settings.images": 2,
+                 'profile.default_content_setting_values' :{'notifications' : 2}
+        }
+        chrome_options.add_experimental_option("prefs", prefs)
+        
+options.add_argument("start-maximized"); // open Browser in maximized mode
+options.add_argument("disable-infobars"); // disabling infobars
+options.add_argument("--disable-extensions"); // disabling extensions
+options.add_argument("--no-sandbox")
+options.add_argument("--disable-dev-shm-usage"); /
 """
